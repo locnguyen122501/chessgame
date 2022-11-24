@@ -30,7 +30,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -71,34 +71,17 @@
     <Compile Include="clsOptions.cs" />
     <Compile Include="ClsPC.cs" />
     <Compile Include="clsProfile.cs" />
-    <Compile Include="clsSavedGame.cs" />
-    <Compile Include="clsSendMail.cs" />
-    <Compile Include="clsTrainingDatabase.cs" />
-    <Compile Include="clsTrainingExercise.cs" />
-    <Compile Include="clsXMLProcess.cs" />
-    <Compile Include="frmAbout.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmAbout.Designer.cs">
-      <DependentUpon>frmAbout.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmAnalysisBoard.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmAnalysisBoard.Designer.cs">
-      <DependentUpon>frmAnalysisBoard.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmFeedBack.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmFeedBack.Designer.cs">
-      <DependentUpon>frmFeedBack.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmFindGame.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmFindGame.designer.cs">
       <DependentUpon>frmFindGame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInfo.Designer.cs">
+      <DependentUpon>frmInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLanGame.cs">
       <SubType>Form</SubType>
@@ -115,20 +98,8 @@
     <Compile Include="frmManageProfile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmManageProfile.Designer.cs">
+    <Compile Include="frmManageProfile.designer.cs">
       <DependentUpon>frmManageProfile.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmGameOptions.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmGameOptions.designer.cs">
-      <DependentUpon>frmGameOptions.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmLoadGame.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmLoadGame.Designer.cs">
-      <DependentUpon>frmLoadGame.cs</DependentUpon>
     </Compile>
     <Compile Include="frmSelectGame.cs">
       <SubType>Form</SubType>
@@ -136,126 +107,31 @@
     <Compile Include="frmSelectGame.Designer.cs">
       <DependentUpon>frmSelectGame.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmTraining.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmTraining.Designer.cs">
-      <DependentUpon>frmTraining.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmTrainingDatabase.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmTrainingDatabase.designer.cs">
-      <DependentUpon>frmTrainingDatabase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmTrainingOptions.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmTrainingOptions.Designer.cs">
-      <DependentUpon>frmTrainingOptions.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmTrainingResult.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmTrainingResult.Designer.cs">
-      <DependentUpon>frmTrainingResult.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmViewProfile.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmViewProfile.Designer.cs">
-      <DependentUpon>frmViewProfile.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmNewProfile.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmNewProfile.Designer.cs">
-      <DependentUpon>frmNewProfile.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmOptions.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmOptions.Designer.cs">
-      <DependentUpon>frmOptions.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmAbout.resx">
-      <DependentUpon>frmAbout.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmAnalysisBoard.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>frmAnalysisBoard.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmFeedBack.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>frmFeedBack.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmFindGame.resx">
       <DependentUpon>frmFindGame.cs</DependentUpon>
-      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInfo.resx">
+      <DependentUpon>frmInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLanGame.resx">
       <DependentUpon>frmLanGame.cs</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <SubType>Designer</SubType>
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmManageProfile.resx">
-      <SubType>Designer</SubType>
       <DependentUpon>frmManageProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmGameOptions.resx">
-      <DependentUpon>frmGameOptions.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmLoadGame.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>frmLoadGame.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmSelectGame.resx">
-      <SubType>Designer</SubType>
       <DependentUpon>frmSelectGame.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmTraining.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>frmTraining.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmTrainingDatabase.resx">
-      <DependentUpon>frmTrainingDatabase.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmTrainingOptions.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>frmTrainingOptions.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmTrainingResult.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>frmTrainingResult.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmViewProfile.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>frmViewProfile.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmNewProfile.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>frmNewProfile.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmOptions.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>frmOptions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UcProfile .resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>UcProfile .cs</DependentUpon>
     </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -274,12 +150,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Settings.cs" />
-    <Compile Include="UcProfile .cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UcProfile .Designer.cs">
-      <DependentUpon>UcProfile .cs</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Chess Usercontrol\Chess Library.csproj">

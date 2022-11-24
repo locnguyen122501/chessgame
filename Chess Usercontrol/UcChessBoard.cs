@@ -25,6 +25,8 @@ namespace Chess_Usercontrol
         Normal = 2,
         Hard = 3
     }
+
+    
     public enum ChessPieceType
     {
         Pawn = 1,//Tốt
@@ -714,31 +716,6 @@ namespace Chess_Usercontrol
             if (strMove == "")
                 return;
             clsMove MyMove = new clsMove(strMove);
-            //string strCur = "", strNew = "", strPromotion = "";
-
-            //strCur = strMove.Substring(0, 2);
-            //strNew = strMove.Substring(2, 2);
-            //if (strMove.Length == 6)
-            //{
-            //    strPromotion = strMove.Substring(5, 1);
-            //}
-            //int CurX = strCur[0] - 64;
-            //int NewX = strNew[0] - 64;
-
-            //MyMove.CurPos = new Point(CurX, strCur[1] - 48);
-            //MyMove.NewPos = new Point(NewX, strNew[1] - 48);
-
-            //if (strPromotion == "")
-            //    MyMove.PromoteTo = ChessPieceType.Null;
-            //else if (strPromotion == "Q")
-            //    MyMove.PromoteTo = ChessPieceType.Queen;
-            //else if (strPromotion == "B")
-            //    MyMove.PromoteTo = ChessPieceType.Bishop;
-            //else if (strPromotion == "N")
-            //    MyMove.PromoteTo = ChessPieceType.Knight;
-            //else if (strPromotion == "R")
-            //    MyMove.PromoteTo = ChessPieceType.Rook;
-
 
             UcChessPiece Piece = this.arrChessCell[MyMove.CurPos.X, MyMove.CurPos.Y].ChessPiece;
             if (Piece == null)
@@ -1042,7 +1019,7 @@ namespace Chess_Usercontrol
             }
             else
             {
-                Piece.UConCell.ChessPiece = Piece;// tra về ô cũ
+                Piece.UConCell.ChessPiece = Piece;// trả về ô cũ
             }
 
         }
@@ -1372,27 +1349,29 @@ namespace Chess_Usercontrol
                     IsCancelThinking = false;
                     return;
                 }
-                Point CurPos = new Point();
-                Point NewPos = new Point();
 
 
                 string strFen = clsFEN.GetFENWithoutMoveNumber(this);
-                MyMove = clsChessEngine.ReadFromBook(strFen);
-                if (MyMove == null)
-                {
+                MyMove = RandomMove(_BoardState, ChessSide.Black
+                    );
+                //if (MyMove == null)
+                //{
 
-                    MyMove = new clsMove(CurPos, NewPos);
-                    //StartTime = DateTime.Now;
-                    arrMove = clsChessEngine.GenerateMove(this._BoardState, this.arrFEN, tmpOppSide, ref MyMove, tmpDifficulty);
-                    if (tmpDifficulty == GameDifficulty.Hard)
-                        clsChessEngine.WriteToBook(strFen, MyMove);
-                }
-                else
-                {
-                    //  intOutOfBookCount = 0;
-                    ChessPieceType eType = (ChessPieceType)(this._BoardState[MyMove.CurPos.X, MyMove.CurPos.Y] / 10);
-                    arrMove = clsChessEngine.FindAllLegalMove(this._BoardState, MyMove.CurPos, eType);
-                }
+                //    MyMove = new clsMove(CurPos, NewPos);
+                //    //StartTime = DateTime.Now;
+                //    arrMove = clsChessEngine.GenerateMove(this._BoardState, this.arrFEN, tmpOppSide, ref MyMove, tmpDifficulty);
+                //    if (tmpDifficulty == GameDifficulty.Hard)
+                //        clsChessEngine.WriteToBook(strFen, MyMove);
+                //}
+                //else
+                //{
+                //    //  intOutOfBookCount = 0;
+                //    ChessPieceType eType = (ChessPieceType)(this._BoardState[MyMove.CurPos.X, MyMove.CurPos.Y] / 10);
+                //    arrMove = clsChessEngine.FindAllLegalMove(this._BoardState, MyMove.CurPos, eType);
+                //}
+                ChessPieceType eType = (ChessPieceType)(this._BoardState[MyMove.CurPos.X, MyMove.CurPos.Y] / 10);
+                arrMove = clsChessEngine.FindAllLegalMove(this._BoardState, MyMove.CurPos, eType);
+
             }
             catch (Exception ex)
             {
@@ -1400,6 +1379,46 @@ namespace Chess_Usercontrol
             }
         }
 
+        private static ArrayList Successors(int[,] BoardState, ChessSide eSide)
+        {
+
+            int intSide = 0;
+            if (eSide == ChessSide.White)
+            {
+                intSide = 2;
+            }
+            else
+            {
+                intSide = 1;
+            }
+            ArrayList arrMoves = new ArrayList();
+            for (int y = 1; y <= 8; y++)
+                for (int x = 1; x <= 8; x++)
+                    if (BoardState[x, y] > 0)
+                    {
+                        int side = BoardState[x, y] % 10;
+                        if (side == intSide)
+                        {
+                            int intType = BoardState[x, y] / 10;
+                            ArrayList arr = clsChessEngine.FindAllLegalMove(BoardState, new Point(x, y), (ChessPieceType)intType);
+                            foreach (Point p in arr)
+                            {
+                                clsMove Move = new clsMove(new Point(x, y), p);
+                                arrMoves.Add(Move);
+                            }
+                        }
+                    }
+            return arrMoves;
+        }
+        public static clsMove RandomMove(int[,] BoardState, ChessSide eSide)
+        {
+            ArrayList arrMoves = Successors(BoardState, eSide);
+            if (arrMoves.Count == 0)
+                return null;
+            Random rd = new Random(arrMoves.Count);
+            int value = rd.Next(arrMoves.Count);
+            return (clsMove)arrMoves[value];
+        }
 
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)

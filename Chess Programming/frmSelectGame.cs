@@ -1,60 +1,65 @@
-﻿using System;
+﻿using Chess_Usercontrol;
+using DevComponents.DotNetBar.Rendering;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using DevComponents.DotNetBar;
-using Chess_Usercontrol ;
+
+
 namespace Chess_Programming
 {
-    public partial class frmSelectGame : DevComponents.DotNetBar.Office2007Form
+    public partial class frmSelectGame : Form
     {
         public frmSelectGame()
         {
             InitializeComponent();
-            cboGameMode.SelectedIndex = 0;
         }
 
         public ChessSide eOwnSide;
         public GameMode eGameMode;
-        public GameDifficulty eDifficulty;
-        public short TimeLimit = 1;
-        public short TimeBonus = 0;
+        private eOffice2007ColorScheme m_BaseColorScheme = eOffice2007ColorScheme.Blue;
 
-        private void btnBegin_Click(object sender, EventArgs e)
+        private void frmSelectGame_Load(object sender, EventArgs e)
         {
-            if (cboGameMode.SelectedIndex == 0)
-                eGameMode = GameMode.VsComputer;
-            else
-                eGameMode = GameMode.VsHuman;
 
-            if (radWhite.Checked)
-                eOwnSide = ChessSide.White;
-            else
-                eOwnSide = ChessSide.Black;
-            
-                if (radEasy.Checked)
-                    eDifficulty = GameDifficulty.Easy;
-                else if (radNormal.Checked)
-                    eDifficulty = GameDifficulty.Normal; 
-                else
-                    eDifficulty = GameDifficulty.Hard;
-                TimeLimit = Convert .ToInt16 ( iTimeLimit.Value);
-                TimeBonus = Convert .ToInt16 ( iTImeBonus.Value );
+        }
+
+        private void btnVsHuman_Click(object sender, EventArgs e)
+        {
+            //DialogResult result = MessageBox.Show("Bạn có muốn chơi 2 người 1 máy?", "Thông báo", MessageBoxButtons.OKCancel);
+            //if (result == DialogResult.OK)
+            //{
+            //    eGameMode = GameMode.VsHuman;
+            //    eOwnSide = ChessSide.White;
+            //}
+            eGameMode = GameMode.VsHuman;
+            eOwnSide = ChessSide.White;
+            frmMain.signal = 0;
             
         }
 
-        private void cboGameMode_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnVsCPU_Click(object sender, EventArgs e)
         {
-            if (cboGameMode.SelectedIndex == 0)
-                groupDifficulty.Enabled = true;
-            if (cboGameMode.SelectedIndex == 1)
-                groupDifficulty.Enabled = false;                
+            //MessageBox.Show("Chức năng vẫn đang tiến hành hoàn thiện","Thông báo");
+            eGameMode = GameMode.VsComputer;
+            eOwnSide = ChessSide.White;
+
+            frmMain.signal = 1;
+
+            
         }
 
+        MessageBoxButtons YesNoButton = MessageBoxButtons.YesNo;
 
-      
+        private void btnChoiLAN_Click(object sender, EventArgs e)
+        {
+            frmMain.signal = 3;
+
+        }
     }
 }

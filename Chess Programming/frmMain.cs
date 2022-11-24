@@ -18,11 +18,18 @@ namespace Chess_Programming
     {
 
         private eOffice2007ColorScheme m_BaseColorScheme = eOffice2007ColorScheme.Blue;
+        private DevComponents.DotNetBar.Office2007RibbonForm activeForm;
+
         private bool m_ColorSelected = false;
         public static ClsPC localpc;
         UcCapturedPieces ucCapturedPieces1, ucCapturedPieces2;
         UcMovesHistory UcMovesHistory1;
         UcCountDownTimer UcCountDownTimer1, UcCountDownTimer2;
+
+        public static int signal;
+
+        public static string name;
+
 
         short TimeBonus = 0;
         short TimeLimit = 1;
@@ -32,27 +39,11 @@ namespace Chess_Programming
         {
             RibbonPredefinedColorSchemes.ChangeOffice2007ColorTable(this, m_BaseColorScheme, e.Color);
         }
-        private void buttonStyleCustom_ExpandChange(object sender, System.EventArgs e)
-        {
-            if (buttonStyleCustom.Expanded)
-            {
-                // Remember the starting color scheme to apply if no color is selected during live-preview
-                m_ColorSelected = false;
-                m_BaseColorScheme = ((Office2007Renderer)GlobalManager.Renderer).ColorTable.InitialColorScheme;
-            }
-            else
-            {
-                if (!m_ColorSelected)
-                {
-                    ribbonControl1.Office2007ColorTable = m_BaseColorScheme;
-                }
-            }
-        }
+
 
         private void buttonStyleCustom_SelectedColorChanged(object sender, System.EventArgs e)
         {
             m_ColorSelected = true; // Indicate that color was selected for buttonStyleCustom_ExpandChange method
-            buttonStyleCustom.CommandParameter = buttonStyleCustom.SelectedColor;
         }
         UcChessBoard Board;
 
@@ -65,6 +56,24 @@ namespace Chess_Programming
         public frmMain()
         {
             InitializeComponent();
+        }
+
+        private void OpenChildForm(DevComponents.DotNetBar.Office2007RibbonForm childForm, object btnSender)
+        {
+            if (activeForm != null)
+            {
+                activeForm.Close();
+            }
+
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.MdiParent = this;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            this.panel1.Controls.Add(childForm);
+            this.panel1.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
         }
 
         //Chơi với Người
@@ -103,25 +112,23 @@ namespace Chess_Programming
                 UcCountDownTimer1.Second = 1;
                 UcCountDownTimer2.Second = 1;
 
-                UcCountDownTimer1.TimeOut += new UcCountDownTimer.TimeOutHandler(UcCountDownTimer1_TimeOut);
-                UcCountDownTimer2.TimeOut += new UcCountDownTimer.TimeOutHandler(UcCountDownTimer2_TimeOut);
+                //UcCountDownTimer1.TimeOut += new UcCountDownTimer.TimeOutHandler(UcCountDownTimer1_TimeOut);
+                //UcCountDownTimer2.TimeOut += new UcCountDownTimer.TimeOutHandler(UcCountDownTimer2_TimeOut);
             }
 
-            btnSaveGame.Enabled = true;
+            
             pnlCapturedPiece1.Controls.Clear();
             pnlCapturedPiece2.Controls.Clear();
-            pnlHistory.Controls.Clear();
+            
 
-            pnlTimer1.Controls.Clear();
-            pnlTimer2.Controls.Clear();
+            
 
 
-            pnlTimer1.Visible = true;
-            pnlTimer2.Visible = true;
+            
 
             pnlCapturedPiece1.Visible = true;
             pnlCapturedPiece2.Visible = true;
-            pnlHistory.Visible = true;
+
             panel1.Visible = true;
             panel1.Controls.Clear();
             clsOptions obj = new clsOptions();
@@ -134,8 +141,7 @@ namespace Chess_Programming
 
 
 
-            pnlTimer1.Controls.Add(UcCountDownTimer1);
-            pnlTimer2.Controls.Add(UcCountDownTimer2);
+            
 
             if (Board.OwnSide == ChessSide.Black)
                 ucCapturedPieces2.PieceColor = ChessSide.White;
@@ -144,7 +150,7 @@ namespace Chess_Programming
 
             pnlCapturedPiece1.Controls.Add(ucCapturedPieces1);
             pnlCapturedPiece2.Controls.Add(ucCapturedPieces2);
-            pnlHistory.Controls.Add(UcMovesHistory1);
+
 
             Board.MoveMaked += new UcChessBoard.MoveMakedHandler(MoveMaked);
             Board.PieceCaptured += new UcChessBoard.PieceCapturedHandler(Board_PieceCaptured);
@@ -171,26 +177,19 @@ namespace Chess_Programming
             pnlCapturedPiece2.Size = ucCapturedPieces2.Size;
 
 
-            pnlHistory.Size = UcMovesHistory1.Size;
-            int x = this.ClientSize.Width - pnlHistory.Size.Width;
-            pnlHistory.Location = new Point(x, panel1.Location.Y);
 
 
-            UcCountDownTimer1.Size = new Size(110, 35);
-            UcCountDownTimer2.Size = new Size(110, 35);
-            UcCountDownTimer1.Location = new Point(8, 8);
-            UcCountDownTimer2.Location = new Point(8, 8);
-            pnlTimer1.Size = new Size(UcCountDownTimer1.Width + 16, UcCountDownTimer1.Height + 16);
-            pnlTimer2.Size = pnlTimer1.Size;
 
-            pnlPlayer1.Visible = true;
-            pnlPlayer2.Visible = true;
+            //UcCountDownTimer1.Size = new Size(110, 35);
+            //UcCountDownTimer2.Size = new Size(110, 35);
+            //UcCountDownTimer1.Location = new Point(8, 8);
+            //UcCountDownTimer2.Location = new Point(8, 8);
 
-            pnlPlayer1.Location = new Point(5, 3);
-            int w = this.ribbonClientPanel1.Height - pnlPlayer2.Height - 10;
-            pnlPlayer2.Location = new Point(pnlPlayer1.Location.X, w);
 
-            panel1.Location = new Point(pnlPlayer1.Location.X + pnlPlayer1.Width + 5, pnlPlayer1.Location.Y);
+
+
+
+
             pnlCapturedPiece1.Location = new Point(panel1.Location.X + panel1.Size.Width + 3, panel1.Location.Y + 2);
             pnlCapturedPiece2.Location = new Point(panel1.Location.X + panel1.Size.Width + 3, this.ribbonClientPanel1.Height - pnlCapturedPiece2.Height - 2);
 
@@ -221,36 +220,32 @@ namespace Chess_Programming
                 ucCapturedPieces1 = new UcCapturedPieces();
                 ucCapturedPieces2 = new UcCapturedPieces();
                 UcMovesHistory1 = new UcMovesHistory();
-                UcCountDownTimer1 = new UcCountDownTimer();
-                UcCountDownTimer2 = new UcCountDownTimer();
+                //UcCountDownTimer1 = new UcCountDownTimer();
+                //UcCountDownTimer2 = new UcCountDownTimer();
 
 
-                UcCountDownTimer1.StopTimer();
-                UcCountDownTimer2.StopTimer();
+                //UcCountDownTimer1.StopTimer();
+                //UcCountDownTimer2.StopTimer();
 
 
-                UcCountDownTimer1.Minute = TimeLimit;
-                UcCountDownTimer2.Minute = TimeLimit;
-                UcCountDownTimer1.Second = 1;
-                UcCountDownTimer2.Second = 1;
+                //UcCountDownTimer1.Minute = TimeLimit;
+                //UcCountDownTimer2.Minute = TimeLimit;
+                //UcCountDownTimer1.Second = 1;
+                //UcCountDownTimer2.Second = 1;
 
-                UcCountDownTimer1.TimeOut += new UcCountDownTimer.TimeOutHandler(UcCountDownTimer1_TimeOut);
-                UcCountDownTimer2.TimeOut += new UcCountDownTimer.TimeOutHandler(UcCountDownTimer2_TimeOut);
+                //UcCountDownTimer1.TimeOut += new UcCountDownTimer.TimeOutHandler(UcCountDownTimer1_TimeOut);
+                //UcCountDownTimer2.TimeOut += new UcCountDownTimer.TimeOutHandler(UcCountDownTimer2_TimeOut);
             }
 
-            pnlHistory.Controls.Clear();
-            pnlHistory.Visible = true;
 
-            btnSaveGame.Enabled = true;
+
+            
             pnlCapturedPiece1.Controls.Clear();
             pnlCapturedPiece2.Controls.Clear();
             pnlCapturedPiece1.Visible = true;
             pnlCapturedPiece2.Visible = true;
 
-            pnlTimer1.Controls.Clear();
-            pnlTimer2.Controls.Clear();
-            pnlTimer1.Visible = true;
-            pnlTimer2.Visible = true;
+
 
             panel1.Visible = true;
             panel1.Controls.Clear();
@@ -258,8 +253,7 @@ namespace Chess_Programming
             Board = new UcChessBoard(obj.BoardStyle, obj.PieceStyle, eOwnSide, eGameMode, eDifficulty, obj.CellSize, obj.PieceSize, obj.PlaySound, strFEN);
 
 
-            pnlTimer1.Controls.Add(UcCountDownTimer1);
-            pnlTimer2.Controls.Add(UcCountDownTimer2);
+
 
             ucCapturedPieces1.PieceColor = Board.OwnSide;
 
@@ -270,7 +264,7 @@ namespace Chess_Programming
 
             pnlCapturedPiece1.Controls.Add(ucCapturedPieces1);
             pnlCapturedPiece2.Controls.Add(ucCapturedPieces2);
-            pnlHistory.Controls.Add(UcMovesHistory1);
+
 
             Board.MoveMaked += new UcChessBoard.MoveMakedHandler(MoveMaked);
             Board.PieceCaptured += new UcChessBoard.PieceCapturedHandler(Board_PieceCaptured);
@@ -300,33 +294,27 @@ namespace Chess_Programming
             pnlCapturedPiece2.Size = ucCapturedPieces2.Size;
 
 
-            pnlHistory.Size = UcMovesHistory1.Size;
-            int x = this.ClientSize.Width - pnlHistory.Size.Width;
-            pnlHistory.Location = new Point(x, panel1.Location.Y);
 
-            UcCountDownTimer1.Size = new Size(110, 35);
-            UcCountDownTimer2.Size = new Size(110, 35);
-            UcCountDownTimer1.Location = new Point(8, 8);
-            UcCountDownTimer2.Location = new Point(8, 8);
-            pnlTimer1.Size = new Size(UcCountDownTimer1.Width + 16, UcCountDownTimer1.Height + 16);
-            pnlTimer2.Size = pnlTimer1.Size;
 
-            pnlPlayer1.Visible = true;
-            pnlPlayer2.Visible = true;
+            //UcCountDownTimer1.Size = new Size(110, 35);
+            //UcCountDownTimer2.Size = new Size(110, 35);
+            //UcCountDownTimer1.Location = new Point(8, 8);
+            //UcCountDownTimer2.Location = new Point(8, 8);
 
-            pnlPlayer1.Location = new Point(5, 3);
-            int w = this.ribbonClientPanel1.Height - pnlPlayer2.Height - 10;
-            pnlPlayer2.Location = new Point(pnlPlayer1.Location.X, w);
+
+
+
+
 
             //Board
-            panel1.Location = new Point(pnlPlayer1.Location.X + pnlPlayer1.Width + 5, pnlPlayer1.Location.Y);
+
             pnlCapturedPiece1.Location = new Point(panel1.Location.X + panel1.Size.Width + 3, panel1.Location.Y + 2);
             pnlCapturedPiece2.Location = new Point(panel1.Location.X + panel1.Size.Width + 3, this.ribbonClientPanel1.Height - pnlCapturedPiece2.Height - 2);
 
-            if (Board.OwnSide == ChessSide.White)
-                UcCountDownTimer2.StartTimer();
-            else
-                UcCountDownTimer1.StartTimer();
+            //if (Board.OwnSide == ChessSide.White)
+            //    UcCountDownTimer2.StartTimer();
+            //else
+            //    UcCountDownTimer1.StartTimer();
         }
 
         void UcCountDownTimer2_TimeOut(object sender, EventArgs e)
@@ -360,13 +348,13 @@ namespace Chess_Programming
                 Board.Enabled = true;
                 if ((Board.WhiteToMove == true && Board.OwnSide == ChessSide.White) || (Board.WhiteToMove == false && Board.OwnSide == ChessSide.Black))
                 {
-                    btnSaveGame.Enabled = true;
+                    
                     btnHint.Enabled = true;
                     btnUndo.Enabled = true;
                 }
                 else
                 {
-                    btnSaveGame.Enabled = true;
+                    
                     btnHint.Enabled = false;
                     btnUndo.Enabled = false;
                 }
@@ -376,28 +364,28 @@ namespace Chess_Programming
             else
             {
                 Board.Enabled = true;
-                btnSaveGame.Enabled = true;
+                
                 btnUndo.Enabled = true;
             }
 
             UcMovesHistory1.LoadMovesHistory(Board.stkWhiteMoves, Board.stkBlackMoves);
             if ((Board.WhiteToMove == true && Board.OwnSide == ChessSide.Black) || (Board.WhiteToMove == false && Board.OwnSide == ChessSide.White))
             {
-                UcCountDownTimer2.StopTimer();
-                UcCountDownTimer1.StartTimer();
-                UcCountDownTimer2.TimeBonus(TimeBonus);
+                //UcCountDownTimer2.StopTimer();
+                //UcCountDownTimer1.StartTimer();
+                //UcCountDownTimer2.TimeBonus(TimeBonus);
             }
             if ((Board.WhiteToMove == true && Board.OwnSide == ChessSide.White) || (Board.WhiteToMove == false && Board.OwnSide == ChessSide.Black))
             {
-                UcCountDownTimer1.StopTimer();
-                UcCountDownTimer2.StartTimer();
-                UcCountDownTimer1.TimeBonus(TimeBonus);
+                //UcCountDownTimer1.StopTimer();
+                //UcCountDownTimer2.StartTimer();
+                //UcCountDownTimer1.TimeBonus(TimeBonus);
             }
             if (Board.GameStatus != GameStatus.NowPlaying)
             {
-                UcCountDownTimer1.StopTimer();
-                UcCountDownTimer2.StopTimer();
-                Board.Enabled = false;
+                //UcCountDownTimer1.StopTimer();
+                //UcCountDownTimer2.StopTimer();
+                //Board.Enabled = false;
             }
         }
 
@@ -520,38 +508,7 @@ namespace Chess_Programming
             this.Close();
         }
 
-        private void btnSaveGame_Click(object sender, EventArgs e)
-        {
-            if (Board != null && Board.stkWhiteMoves.Count > 0) //&& (Board.stkWhiteMoves.Count >= Board.stkBlackMoves.Count))
-            {
-                SaveFileDialog dlg = new SaveFileDialog();
 
-                dlg.Filter = "Saved Game|*.sav";
-                string savedir = Application.StartupPath + "\\Saved Games";
-                if (Directory.Exists(savedir) == false)
-                    Directory.CreateDirectory(savedir);
-                dlg.InitialDirectory = savedir;
-                if (dlg.ShowDialog() != DialogResult.Cancel)
-                {
-                    string FEN = clsFEN.GetFEN(Board);
-                    string strMoveList = GetMoveList(Board.stkWhiteMoves, Board.stkBlackMoves);
-                    clsSavedGame save = new clsSavedGame(Board.GameMode, Board.Difficulty, Board.OwnSide, FEN, strMoveList);
-
-                    save.TimeLimit = TimeLimit;
-                    save.TimeBonus = TimeBonus;
-                    save.MinutesRemaining1 = UcCountDownTimer1.Minute;
-                    save.MinutesRemaining2 = UcCountDownTimer2.Minute;
-                    save.SecondsRemaining1 = UcCountDownTimer1.Second;
-                    save.SecondsRemaining2 = UcCountDownTimer2.Second;
-                    if (File.Exists(dlg.FileName))
-                    {
-                        File.SetAttributes(dlg.FileName, FileAttributes.Normal);
-                        File.Delete(dlg.FileName);
-                    }
-                    save.SaveToFile(dlg.FileName);
-                }
-            }
-        }
         string GetMoveList(Stack stkWhite, Stack stkBlack)
         {
             StringBuilder str = new StringBuilder();
@@ -576,193 +533,95 @@ namespace Chess_Programming
             return str.ToString().Trim();
         }
 
-        private void btnLoadGame_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                frmLoadGame frm = new frmLoadGame();
-                bool K = true, Q = true, k = true, q = true;
-                if (Board != null)
-                {
-                    K = UcChessBoard.KINGsideCastling;
-                    Q = UcChessBoard.QUEENsideCastling;
-                    k = UcChessBoard.kingsideCastling;
-                    q = UcChessBoard.queensideCastling;
-                }
 
-                DialogResult dr = frm.ShowDialog();
-                if (dr == DialogResult.OK)
-                {
-                    clsSavedGame sav = frm.SavedGame;
-                    if (sav != null)
-                    {
-                        GameMode eGameMode = sav.GameMode;
-                        GameDifficulty eDiff = sav.GameDifficulty;
-                        ChessSide eOwnSide = sav.OwnSide;
-                        string Fen = sav.FEN;
-                        string strMoveList = sav.MoveList;
 
-                        this.TimeLimit = sav.TimeLimit;
-                        this.TimeBonus = sav.TimeBonus;
-
-                        //string[] s = strMoveList.Trim().Split(' ');
-                        //if (s[0] != "")
-                        //{
-                        //    //if (eGameMode == GameMode.VsComputer)
-                        //    //    CreateChessBoard(eOwnSide, GameMode.VsNetWorkPlayer, eDiff, clsFEN.DefaultFENstring);
-                        //    //else
-                        //    //    CreateChessBoard(eOwnSide, eGameMode, clsFEN.DefaultFENstring);
-                        //    //bool bSound = Board.PlaySound;
-                        //    //bool bMess = Board.ShowMessage;
-                        //    //Board.PlaySound = false;
-                        //    //frmMessageBox.ShowMessage = false;
-                        //    //Board.ShowMessage = false;
-                        //    //foreach (string str in s)
-                        //    //{
-                        //    //    Board.MakeMove(str.Remove(2, 1));
-                        //    //}
-                        //    //Board.PlaySound = bSound;
-                        //    //Board.ShowMessage = bMess;
-                        //    //Board.GameMode = eGameMode;
-                        //}
-                        //else
-                        //{
-                        if (eGameMode == GameMode.VsComputer)
-                            CreateChessBoard(eOwnSide, eGameMode, eDiff, Fen);
-                        else
-                            CreateChessBoard(eOwnSide, eGameMode, Fen);
-                        //}
-
-                        UcCountDownTimer1.Minute = sav.MinutesRemaining1;
-                        UcCountDownTimer1.Second = sav.SecondsRemaining1;
-                        UcCountDownTimer2.Minute = sav.MinutesRemaining2;
-                        UcCountDownTimer2.Second = sav.SecondsRemaining2;
-
-                        frmMessageBox.ShowMessage = true;
-
-                    }
-
-                }
-                else
-                {
-                    UcChessBoard.KINGsideCastling = K;
-                    UcChessBoard.QUEENsideCastling = Q;
-                    UcChessBoard.kingsideCastling = k;
-                    UcChessBoard.queensideCastling = q;
-                }
-            }
-            catch { }
-        }
-
-        private void btnOptions_Click(object sender, EventArgs e)
-        {
-            string strFEN = "";
-            if (Board != null)
-            {
-                strFEN = clsFEN.GetFEN(Board);
-            }
-
-            frmOptions frm = new frmOptions();
-            if (frm.ShowDialog() == DialogResult.OK && Board != null)
-            {
-
-                this._OwnSide = Board.OwnSide;
-                this._GameMode = Board.GameMode;
-                Stack Black, White, State;
-
-                Black = (Stack)Board.stkBlackMoves.Clone();
-                White = (Stack)Board.stkWhiteMoves.Clone();
-                State = (Stack)Board.stkState.Clone();
-
-                Stack Captured = new Stack();
-                foreach (UcChessPiece piece in Board.stkCapturedPieces)
-                {
-                    UcChessPiece p = new UcChessPiece();
-                    p.PositionX = piece.PositionX;
-                    p.PositionY = piece.PositionY;
-                    p.Location = piece.Location;
-                    p.Side = piece.Side;
-                    p.Type = piece.Type;
-                    Captured.Push(p);
-                }
-
-                if (this._GameMode == GameMode.VsComputer)
-                {
-                    GameDifficulty diff = Board.Difficulty;
-
-                    short m1, s1, m2, s2;
-                    m1 = UcCountDownTimer1.Minute;
-                    m2 = UcCountDownTimer2.Minute;
-                    s1 = UcCountDownTimer1.Second;
-                    s2 = UcCountDownTimer2.Second;
-                    CreateChessBoard(this._OwnSide, this._GameMode, diff, strFEN);
-                    UcCountDownTimer1.Minute = m1;
-                    UcCountDownTimer2.Minute = m2;
-                    UcCountDownTimer1.Second = s1;
-                    UcCountDownTimer2.Second = s2;
-                }
-                else
-                {
-
-                    short m1, s1, m2, s2;
-                    m1 = UcCountDownTimer1.Minute;
-                    m2 = UcCountDownTimer2.Minute;
-                    s1 = UcCountDownTimer1.Second;
-                    s2 = UcCountDownTimer2.Second;
-                    CreateChessBoard(this._OwnSide, this._GameMode, strFEN);
-                    UcCountDownTimer1.Minute = m1;
-                    UcCountDownTimer2.Minute = m2;
-                    UcCountDownTimer1.Second = s1;
-                    UcCountDownTimer2.Second = s2;
-                }
-                Board.stkBlackMoves = Black;
-                Board.stkWhiteMoves = White;
-                Board.stkState = State;
-                clsOptions obj = new clsOptions();
-                foreach (UcChessPiece piece in Captured)
-                {
-                    UcChessPiece p = new UcChessPiece(piece.Side, piece.Type, obj.PieceStyle, obj.CellSize, obj.PieceSize, piece.PositionX, piece.PositionY, Board.arrChessCell[piece.PositionX, piece.PositionY]);
-                    Board.stkCapturedPieces.Push(p);
-                }
-
-                ucCapturedPieces1.LoadPieces(Board.stkCapturedPieces);
-                ucCapturedPieces2.LoadPieces(Board.stkCapturedPieces);
-                UcMovesHistory1.LoadMovesHistory(Board.stkWhiteMoves, Board.stkBlackMoves);
-            }
-        }
-
-        private void buttonItem1_Click(object sender, EventArgs e)
-        {
-            frmManageProfile frm = new frmManageProfile();
-            frm.ShowDialog();
-        }
+ 
 
 
 
+        public ChessSide eOwnSide;
+        public GameMode eGameMode;
+        public GameDifficulty eDifficulty;
+        string strFen = clsFEN.DefaultFENstring;
+        
 
         private void btnNewGame_Click(object sender, EventArgs e)
         {
 
             frmSelectGame frm = new frmSelectGame();
-            if (frm.ShowDialog() == DialogResult.OK)
-            {
-                ChessSide eOwnSide = frm.eOwnSide;
-                GameMode eGameMode = frm.eGameMode;
-                GameDifficulty eDifficulty = frm.eDifficulty;
-                string strFen = clsFEN.DefaultFENstring;
+            frm.ShowDialog();
 
-                this.TimeLimit = frm.TimeLimit;
-                this.TimeBonus = frm.TimeBonus;
-
-                if (eGameMode == GameMode.VsComputer)
-                    CreateChessBoard(eOwnSide, eGameMode, eDifficulty, strFen);
-                else
-                    CreateChessBoard(eOwnSide, eGameMode, strFen);
-                frmMessageBox.ShowMessage = true;
-
-                PlayMusic(soundNewGame);
+            if (signal == 0)
+            {                
+                GameMode eGameMode = GameMode.VsHuman;
+                if (eGameMode == GameMode.VsHuman)
+                {
+                    eGameMode = GameMode.VsHuman;
+                    eOwnSide = ChessSide.White;
+                    CreateChessBoard(eOwnSide, eGameMode, strFen); //day la cua choi voi nguoi
+                }
+                
             }
+            else if (signal == 1)
+            {
+                
+                
+                    eGameMode = GameMode.VsComputer;
+                    if (eGameMode == GameMode.VsComputer)
+                    {
+                        eGameMode = GameMode.VsComputer;
+                        eOwnSide = ChessSide.White;
+                        CreateChessBoard(eOwnSide, eGameMode, eDifficulty, strFen); //day la cua choi voi may
+                    }
+                
+            }
+            else
+            {
+                try
+                {
+                    if (frmMain.localpc.Profile == null)
+                    {
+                        frmManageProfile frml = new frmManageProfile();
+                        frml.ShowDialog();
+                    }
+                    this.Hide();
+                    frmFindGame frms = new frmFindGame();
+                    frms.ShowDialog();
+                    this.Show();
+                }
+                catch
+                {
+
+
+                }
+            }    
             frm.Dispose();
+            
+
+
+            
+
+
+
+
+            
+
+            //    ChessSide eOwnSide = frm.eOwnSide;
+            //    GameMode eGameMode = frm.eGameMode;
+            //    GameDifficulty eDifficulty = frm.eDifficulty;
+            //    string strFen = clsFEN.DefaultFENstring;
+
+            //    this.TimeLimit = frm.TimeLimit;
+            //    this.TimeBonus = frm.TimeBonus;
+
+            //    if (eGameMode == GameMode.VsComputer)
+            //        CreateChessBoard(eOwnSide, eGameMode, eDifficulty, strFen);
+            //    else
+            //        CreateChessBoard(eOwnSide, eGameMode, strFen);
+            //    frmMessageBox.ShowMessage = true;
+
+            //    PlayMusic(soundNewGame);
+
 
         }
         public void PlayMusic(SoundPlayer sound)
@@ -859,49 +718,16 @@ namespace Chess_Programming
             }
         }
 
-        private void btnLanGame_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (frmMain.localpc.Profile == null)
-                {
-                    frmManageProfile frm = new frmManageProfile();
-                    if (frm.ShowDialog() != DialogResult.OK)
-                        return;
-                }
-                this.Hide();
-                frmFindGame frms = new frmFindGame();
-                frms.ShowDialog();
-                this.Show();
-            }
-            catch
-            {
 
 
-            }
 
-        }
-
-        private void btnTrainingDatabase_Click(object sender, EventArgs e)
-        {
-            frmTrainingDatabase frm = new frmTrainingDatabase();
-            frm.ShowDialog();
-        }
-
-        private void btnTraining_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            frmTraining frm = new frmTraining();
-            frm.ShowDialog();
-            this.Show();
-        }
         SoundPlayer soundNewGame;
         private void frmMain_Load(object sender, EventArgs e)
         {
             soundNewGame = new SoundPlayer(Properties.Resources.NewGame);
             soundNewGame.LoadAsync();
-
             frmMain.localpc = new ClsPC(28000);
+
             //frmMain.localpc.ipAddress = System.Net.IPAddress.Parse("127.0.0.1");
         }
 
@@ -923,89 +749,84 @@ namespace Chess_Programming
             }
         }
 
-        private void btnChessRule_Click(object sender, EventArgs e)
+        private void ribbonControl1_Click_1(object sender, EventArgs e)
         {
-            Help.ShowHelp(this, Application.StartupPath + "\\LuatCoVua.chm", HelpNavigator.TableOfContents);
+
         }
 
-        private void btnAbout_Click(object sender, EventArgs e)
+        private void btnInfo_Click(object sender, EventArgs e)
         {
-            frmAbout frm = new frmAbout();
-            frm.ShowDialog();
+            MessageBox.Show("1911065918\tNguyễn Lê Đắc Lộc\n1911065966\tNguyễn Thành An\n1911066302\tTrần Hữu Quang", "Nhóm 1", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //OpenChildForm(new frmInfo(), sender);
+            //var childForm = new childForm() { MdiParent = MdiParent };
+            //childForm.Show();
         }
 
-        private void btnContact_Click(object sender, EventArgs e)
+        private void panel2_Paint(object sender, PaintEventArgs e)
         {
-            frmFeedBack frm = new frmFeedBack();
-            frm.ShowDialog();
+
         }
 
-        private void buttonItem2_Click(object sender, EventArgs e)
+        private void btnGVHD_Click(object sender, EventArgs e)
         {
-            if (Board != null)
-            {
-                try
-                {
-                    SaveFileDialog dlg = new SaveFileDialog();
-                    dlg.Filter = "Text File|*.txt";
-                    if (dlg.ShowDialog() == DialogResult.OK)
-                    {
-                        StreamWriter s = new StreamWriter(dlg.FileName);
+            MessageBox.Show("Thầy Trần Gia Huy","Giảng viên hướng dẫn",MessageBoxButtons.OK,MessageBoxIcon.Information);
+        }
 
-                        Stack MoveList = new Stack();
-                        if (Board.stkWhiteMoves.Count > Board.stkBlackMoves.Count)
-                        {
-                            MoveList.Push(Board.stkBlackMoves.Pop());
-                        }
-                        //Lúc này 2 Stack bằng nhau
-                        while (Board.stkWhiteMoves.Count > 0)
-                        {
-                            MoveList.Push(Board.stkBlackMoves.Pop());
-                            MoveList.Push(Board.stkWhiteMoves.Pop());
-                        }
+        private void ribbonControl1_Click(object sender, EventArgs e)
+        {
 
-
-                        int i = 0;
-                        while (MoveList.Count > 0)
-                        {
-                            string str = "";
-                            i++;
-                            str += (i + 1) / 2;
-                            str += ". ";
-                            str += MoveList.Pop().ToString();
-                            if (MoveList.Count > 0)
-                            {
-                                str += " " + MoveList.Pop().ToString();
-                            }
-                            i++;
-                            s.WriteLine(str.ToLower());
-                        }
-
-                        s.Close();
-
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-
-            }
         }
 
 
+        //private void buttonItem2_Click(object sender, EventArgs e)
+        //{
+        //    if (Board != null)
+        //    {
+        //        try
+        //        {
+        //            SaveFileDialog dlg = new SaveFileDialog();
+        //            dlg.Filter = "Text File|*.txt";
+        //            if (dlg.ShowDialog() == DialogResult.OK)
+        //            {
+        //                StreamWriter s = new StreamWriter(dlg.FileName);
+
+        //                Stack MoveList = new Stack();
+        //                if (Board.stkWhiteMoves.Count > Board.stkBlackMoves.Count)
+        //                {
+        //                    MoveList.Push(Board.stkBlackMoves.Pop());
+        //                }
+        //                //Lúc này 2 Stack bằng nhau
+        //                while (Board.stkWhiteMoves.Count > 0)
+        //                {
+        //                    MoveList.Push(Board.stkBlackMoves.Pop());
+        //                    MoveList.Push(Board.stkWhiteMoves.Pop());
+        //                }
 
 
+        //                int i = 0;
+        //                while (MoveList.Count > 0)
+        //                {
+        //                    string str = "";
+        //                    i++;
+        //                    str += (i + 1) / 2;
+        //                    str += ". ";
+        //                    str += MoveList.Pop().ToString();
+        //                    if (MoveList.Count > 0)
+        //                    {
+        //                        str += " " + MoveList.Pop().ToString();
+        //                    }
+        //                    i++;
+        //                    s.WriteLine(str.ToLower());
+        //                }
+        //                s.Close();
+        //            }
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            MessageBox.Show(ex.Message);
+        //        }
 
-
-
-
-
-
-
-
-
-
-
+        //    }
+        //}
     }
 }

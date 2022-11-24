@@ -132,65 +132,65 @@ namespace Chess_Programming
 
         //}
 
-        public void LoadProfile()
-        {
+        //public void LoadProfile()
+        //{
 
 
-            DataTable tbl = clsXMLProcess.GetTable(path);
-            DataRow r = tbl.Rows[0];
+        //    DataTable tbl = clsXMLProcess.GetTable(path);
+        //    DataRow r = tbl.Rows[0];
 
-            this._PlayerName = r["PlayerName"].ToString();
-            this._Rating = Convert.ToInt32(r["Rating"]);
-            this._TotalGames = Convert.ToInt32(r["TotalGames"]);
-            this._TotalWin = Convert.ToInt32(r["TotalWin"]);
-            this._TotalLose = Convert.ToInt32(r["TotalLose"]);
-            this._TotalDraw = Convert.ToInt32(r["TotalDraw"]);
+        //    this._PlayerName = r["PlayerName"].ToString();
+        //    this._Rating = Convert.ToInt32(r["Rating"]);
+        //    this._TotalGames = Convert.ToInt32(r["TotalGames"]);
+        //    this._TotalWin = Convert.ToInt32(r["TotalWin"]);
+        //    this._TotalLose = Convert.ToInt32(r["TotalLose"]);
+        //    this._TotalDraw = Convert.ToInt32(r["TotalDraw"]);
 
-            string strAvatar = "";
+        //    string strAvatar = "";
 
-            try
-            {
-                strAvatar = r["Avatar"].ToString();
-                this._Avatar = new clsImage();
-                this._Avatar.ImageFromBytes(Convert.FromBase64String(strAvatar));
-            }
-            catch
-            {
+        //    try
+        //    {
+        //        strAvatar = r["Avatar"].ToString();
+        //        this._Avatar = new clsImage();
+        //        this._Avatar.ImageFromBytes(Convert.FromBase64String(strAvatar));
+        //    }
+        //    catch
+        //    {
 
-            }
+        //    }
 
-        }
+        //}
 
-        public void SaveProfile()
-        {
+        //public void SaveProfile()
+        //{
            
-            if (Directory.Exists(Application.StartupPath + "\\Profiles") == false)
-                Directory.CreateDirectory(Application.StartupPath + "\\Profiles");
+        //    if (Directory.Exists(Application.StartupPath + "\\Profiles") == false)
+        //        Directory.CreateDirectory(Application.StartupPath + "\\Profiles");
 
-            if (File.Exists(path) == false)
-            {
-                clsXMLProcess.CreateNewProfile(path);
-            }
+        //    if (File.Exists(path) == false)
+        //    {
+        //        clsXMLProcess.CreateNewProfile(path);
+        //    }
 
-            DataTable tbl = clsXMLProcess.GetTable(path);
-            DataRow r = tbl.Rows[0];
-            string strAvatar = "";
-            if (this._Avatar != null)
-            {
-                strAvatar = Convert.ToBase64String(this._Avatar.ImageToBytes());
-            }
+        //    DataTable tbl = clsXMLProcess.GetTable(path);
+        //    DataRow r = tbl.Rows[0];
+        //    string strAvatar = "";
+        //    if (this._Avatar != null)
+        //    {
+        //        strAvatar = Convert.ToBase64String(this._Avatar.ImageToBytes());
+        //    }
 
 
-            r["PlayerName"] = this._PlayerName;
-            r["Avatar"] = strAvatar;
-            r["TotalGames"] = this._TotalGames;
-            r["TotalWin"] = this._TotalWin;
-            r["TotalLose"] = this._TotalLose;
-            r["TotalDraw"] = this._TotalDraw;
-            r["Rating"] = this._Rating;
+        //    r["PlayerName"] = this._PlayerName;
+        //    r["Avatar"] = strAvatar;
+        //    r["TotalGames"] = this._TotalGames;
+        //    r["TotalWin"] = this._TotalWin;
+        //    r["TotalLose"] = this._TotalLose;
+        //    r["TotalDraw"] = this._TotalDraw;
+        //    r["Rating"] = this._Rating;
 
-            tbl.WriteXml(path);
-        }
+        //    tbl.WriteXml(path);
+        //}
 
 
         public static void CalculateResult(ref clsProfile profile1, ref clsProfile profile2, GameResult result)

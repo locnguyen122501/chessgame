@@ -30,3 +30,69 @@ C:\Users\admin\OneDrive\Desktop\Nhóm 5\Source Code\ĐỒ ÁN\Chess Usercontrol\
 C:\Users\admin\OneDrive\Desktop\Nhóm 5\Source Code\ĐỒ ÁN\Chess Usercontrol\obj\Debug\Chess Library.csproj.CoreCompileInputs.cache
 C:\Users\admin\OneDrive\Desktop\Nhóm 5\Source Code\ĐỒ ÁN\Chess Usercontrol\obj\Debug\Chess Usercontrol.dll
 C:\Users\admin\OneDrive\Desktop\Nhóm 5\Source Code\ĐỒ ÁN\Chess Usercontrol\obj\Debug\Chess Usercontrol.pdb
+C:\Users\Admin\Downloads\Ph-n-m-m-game-c-vua--20220925T070948Z-001\Ph-n-m-m-game-c-vua-\Chess Usercontrol\obj\Debug\Chess Usercontrol.dll
+C:\Users\Admin\Downloads\Ph-n-m-m-game-c-vua--20220925T070948Z-001\Ph-n-m-m-game-c-vua-\Chess Usercontrol\obj\Debug\Chess Usercontrol.pdb
+C:\Users\Admin\Downloads\Ph-n-m-m-game-c-vua--20220925T070948Z-001\Phần mềm game cờ vua\Chess Usercontrol\bin\Debug\Chess Usercontrol.dll
+C:\Users\Admin\Downloads\Ph-n-m-m-game-c-vua--20220925T070948Z-001\Phần mềm game cờ vua\Chess Usercontrol\bin\Debug\Chess Usercontrol.pdb
+C:\Users\Admin\Downloads\Ph-n-m-m-game-c-vua--20220925T070948Z-001\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess Library.csproj.AssemblyReference.cache
+C:\Users\Admin\Downloads\Ph-n-m-m-game-c-vua--20220925T070948Z-001\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess_Usercontrol.frmMessageBox.resources
+C:\Users\Admin\Downloads\Ph-n-m-m-game-c-vua--20220925T070948Z-001\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess_Usercontrol.frmPromotion.resources
+C:\Users\Admin\Downloads\Ph-n-m-m-game-c-vua--20220925T070948Z-001\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess_Usercontrol.Properties.Resources.resources
+C:\Users\Admin\Downloads\Ph-n-m-m-game-c-vua--20220925T070948Z-001\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess_Usercontrol.UcCapturedPieces.resources
+C:\Users\Admin\Downloads\Ph-n-m-m-game-c-vua--20220925T070948Z-001\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess_Usercontrol.UcChessBoard.resources
+C:\Users\Admin\Downloads\Ph-n-m-m-game-c-vua--20220925T070948Z-001\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess_Usercontrol.UcChessCell.resources
+C:\Users\Admin\Downloads\Ph-n-m-m-game-c-vua--20220925T070948Z-001\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess_Usercontrol.UcChessPiece.resources
+C:\Users\Admin\Downloads\Ph-n-m-m-game-c-vua--20220925T070948Z-001\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess_Usercontrol.UcMovesHistory.resources
+C:\Users\Admin\Downloads\Ph-n-m-m-game-c-vua--20220925T070948Z-001\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\DigitalClock.UcCountDownTimer.resources
+C:\Users\Admin\Downloads\Ph-n-m-m-game-c-vua--20220925T070948Z-001\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess Library.csproj.GenerateResource.cache
+C:\Users\Admin\Downloads\Ph-n-m-m-game-c-vua--20220925T070948Z-001\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess Library.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Downloads\Ph-n-m-m-game-c-vua--20220925T070948Z-001\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess Usercontrol.dll
+C:\Users\Admin\Downloads\Ph-n-m-m-game-c-vua--20220925T070948Z-001\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess Usercontrol.pdb
+C:\Users\Admin\OneDrive\Desktop\Đồ án\Phần mềm game cờ vua\Chess Usercontrol\bin\Debug\Chess Usercontrol.dll
+C:\Users\Admin\OneDrive\Desktop\Đồ án\Phần mềm game cờ vua\Chess Usercontrol\bin\Debug\Chess Usercontrol.pdb
+C:\Users\Admin\OneDrive\Desktop\Đồ án\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess Library.csproj.AssemblyReference.cache
+C:\Users\Admin\OneDrive\Desktop\Đồ án\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess_Usercontrol.frmMessageBox.resources
+C:\Users\Admin\OneDrive\Desktop\Đồ án\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess_Usercontrol.frmPromotion.resources
+C:\Users\Admin\OneDrive\Desktop\Đồ án\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess_Usercontrol.Properties.Resources.resources
+C:\Users\Admin\OneDrive\Desktop\Đồ án\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess_Usercontrol.UcCapturedPieces.resources
+C:\Users\Admin\OneDrive\Desktop\Đồ án\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess_Usercontrol.UcChessBoard.resources
+C:\Users\Admin\OneDrive\Desktop\Đồ án\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess_Usercontrol.UcChessCell.resources
+C:\Users\Admin\OneDrive\Desktop\Đồ án\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess_Usercontrol.UcChessPiece.resources
+C:\Users\Admin\OneDrive\Desktop\Đồ án\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess_Usercontrol.UcMovesHistory.resources
+C:\Users\Admin\OneDrive\Desktop\Đồ án\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\DigitalClock.UcCountDownTimer.resources
+C:\Users\Admin\OneDrive\Desktop\Đồ án\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess Library.csproj.GenerateResource.cache
+C:\Users\Admin\OneDrive\Desktop\Đồ án\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess Library.csproj.CoreCompileInputs.cache
+C:\Users\Admin\OneDrive\Desktop\Đồ án\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess Usercontrol.dll
+C:\Users\Admin\OneDrive\Desktop\Đồ án\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess Usercontrol.pdb
+C:\Users\Tran Huu Quang\Desktop\Phần mềm game cờ vua\Chess Usercontrol\bin\Debug\Chess Usercontrol.dll
+C:\Users\Tran Huu Quang\Desktop\Phần mềm game cờ vua\Chess Usercontrol\bin\Debug\Chess Usercontrol.pdb
+C:\Users\Tran Huu Quang\Desktop\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess Library.csproj.AssemblyReference.cache
+C:\Users\Tran Huu Quang\Desktop\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess_Usercontrol.frmMessageBox.resources
+C:\Users\Tran Huu Quang\Desktop\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess_Usercontrol.frmPromotion.resources
+C:\Users\Tran Huu Quang\Desktop\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess_Usercontrol.Properties.Resources.resources
+C:\Users\Tran Huu Quang\Desktop\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess_Usercontrol.UcCapturedPieces.resources
+C:\Users\Tran Huu Quang\Desktop\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess_Usercontrol.UcChessBoard.resources
+C:\Users\Tran Huu Quang\Desktop\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess_Usercontrol.UcChessCell.resources
+C:\Users\Tran Huu Quang\Desktop\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess_Usercontrol.UcChessPiece.resources
+C:\Users\Tran Huu Quang\Desktop\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess_Usercontrol.UcMovesHistory.resources
+C:\Users\Tran Huu Quang\Desktop\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\DigitalClock.UcCountDownTimer.resources
+C:\Users\Tran Huu Quang\Desktop\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess Library.csproj.GenerateResource.cache
+C:\Users\Tran Huu Quang\Desktop\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess Library.csproj.CoreCompileInputs.cache
+C:\Users\Tran Huu Quang\Desktop\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess Usercontrol.dll
+C:\Users\Tran Huu Quang\Desktop\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess Usercontrol.pdb
+C:\Users\Admin\Downloads\Compressed\New\Phần mềm game cờ vua\Chess Usercontrol\bin\Debug\Chess Usercontrol.dll
+C:\Users\Admin\Downloads\Compressed\New\Phần mềm game cờ vua\Chess Usercontrol\bin\Debug\Chess Usercontrol.pdb
+C:\Users\Admin\Downloads\Compressed\New\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess Library.csproj.AssemblyReference.cache
+C:\Users\Admin\Downloads\Compressed\New\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess_Usercontrol.frmMessageBox.resources
+C:\Users\Admin\Downloads\Compressed\New\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess_Usercontrol.frmPromotion.resources
+C:\Users\Admin\Downloads\Compressed\New\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess_Usercontrol.Properties.Resources.resources
+C:\Users\Admin\Downloads\Compressed\New\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess_Usercontrol.UcCapturedPieces.resources
+C:\Users\Admin\Downloads\Compressed\New\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess_Usercontrol.UcChessBoard.resources
+C:\Users\Admin\Downloads\Compressed\New\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess_Usercontrol.UcChessCell.resources
+C:\Users\Admin\Downloads\Compressed\New\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess_Usercontrol.UcChessPiece.resources
+C:\Users\Admin\Downloads\Compressed\New\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess_Usercontrol.UcMovesHistory.resources
+C:\Users\Admin\Downloads\Compressed\New\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\DigitalClock.UcCountDownTimer.resources
+C:\Users\Admin\Downloads\Compressed\New\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess Library.csproj.GenerateResource.cache
+C:\Users\Admin\Downloads\Compressed\New\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess Library.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Downloads\Compressed\New\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess Usercontrol.dll
+C:\Users\Admin\Downloads\Compressed\New\Phần mềm game cờ vua\Chess Usercontrol\obj\Debug\Chess Usercontrol.pdb

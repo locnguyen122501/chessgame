@@ -19,46 +19,14 @@ namespace Chess_Programming
         {
             this._CellSize = 80;
             this._PieceSize = 64;
-            this._PieceStyle = ChessPieceStyle.Classic;
-            this._BoardStyle = ChessBoardStyle.Metal;
-            this.PlaySound = true;
-            
-            LoadOptions();
+            this._PieceStyle = ChessPieceStyle.Wooden3D;
+            this._BoardStyle = ChessBoardStyle.Wooden;
+            this.PlaySound = true;                        
         }
 
-        public void LoadOptions()
-        {
-            if (File.Exists(path) == false)
-            {
-                clsXMLProcess.CreateNewOptions(path);
-                SaveOptions();
-            }
-            else
-            {
-                DataTable tbl = clsXMLProcess.GetTable(path);
-                DataRow r = tbl.Rows[0];
-                this._CellSize = Convert .ToInt32 ( r["CELLSIZE"]);
-                this._PieceSize = Convert .ToInt32 (r["PIECESIZE"]);
-                this._BoardStyle = (ChessBoardStyle )Convert .ToInt32 (r["BOARDSTYLE"]);
-                this._PieceStyle = (ChessPieceStyle ) Convert .ToInt32 (r["PIECESTYLE"]);
-                this._PlaySound =Convert .ToBoolean ( r["PLAYSOUND"]);
-            }
 
-        }
 
-        public void SaveOptions()
-        {
-            DataTable tbl = clsXMLProcess.GetTable(path);
-            DataRow r = tbl.Rows[0];
-            r["CELLSIZE"] = this._CellSize;
-            r["PIECESIZE"] = this._PieceSize;
-            r["BOARDSTYLE"] = (int)this._BoardStyle;
-            r["PIECESTYLE"] = (int)this._PieceStyle;
-            r["PLAYSOUND"] = this._PlaySound;
 
-            tbl.WriteXml(path);
-            
-        }
         public int CellSize
         {
             get
