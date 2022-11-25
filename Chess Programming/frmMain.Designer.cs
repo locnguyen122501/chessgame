@@ -30,16 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.ribbonControl1 = new DevComponents.DotNetBar.RibbonControl();
-            this.ribbonPanel1 = new DevComponents.DotNetBar.RibbonPanel();
-            this.ribbonBar7 = new DevComponents.DotNetBar.RibbonBar();
-            this.btnExit = new DevComponents.DotNetBar.ButtonItem();
-            this.ribbonBar1 = new DevComponents.DotNetBar.RibbonBar();
-            this.btnNewGame = new DevComponents.DotNetBar.ButtonItem();
             this.ribbonPanel2 = new DevComponents.DotNetBar.RibbonPanel();
             this.ribbonBar3 = new DevComponents.DotNetBar.RibbonBar();
             this.btnInfo = new DevComponents.DotNetBar.ButtonItem();
             this.ribbonBar2 = new DevComponents.DotNetBar.RibbonBar();
             this.btnGVHD = new DevComponents.DotNetBar.ButtonItem();
+            this.ribbonPanel1 = new DevComponents.DotNetBar.RibbonPanel();
+            this.ribbonBar7 = new DevComponents.DotNetBar.RibbonBar();
+            this.btnExit = new DevComponents.DotNetBar.ButtonItem();
+            this.ribbonBar1 = new DevComponents.DotNetBar.RibbonBar();
+            this.btnNewGame = new DevComponents.DotNetBar.ButtonItem();
             this.ribbonTabItem1 = new DevComponents.DotNetBar.RibbonTabItem();
             this.ribbonTabItem2 = new DevComponents.DotNetBar.RibbonTabItem();
             this.qatCustomizeItem1 = new DevComponents.DotNetBar.QatCustomizeItem();
@@ -57,9 +57,10 @@
             this.btnScreenCapture = new DevComponents.DotNetBar.ButtonItem();
             this.btnUndo = new DevComponents.DotNetBar.ButtonItem();
             this.btnHint = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem1 = new DevComponents.DotNetBar.ButtonItem();
             this.ribbonControl1.SuspendLayout();
-            this.ribbonPanel1.SuspendLayout();
             this.ribbonPanel2.SuspendLayout();
+            this.ribbonPanel1.SuspendLayout();
             this.ribbonClientPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -86,6 +87,61 @@
             this.ribbonControl1.TabIndex = 0;
             this.ribbonControl1.Text = "ribbonControl1";
             this.ribbonControl1.Click += new System.EventHandler(this.ribbonControl1_Click_1);
+            // 
+            // ribbonPanel2
+            // 
+            this.ribbonPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.ribbonPanel2.Controls.Add(this.ribbonBar3);
+            this.ribbonPanel2.Controls.Add(this.ribbonBar2);
+            this.ribbonPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ribbonPanel2.Location = new System.Drawing.Point(0, 55);
+            this.ribbonPanel2.Name = "ribbonPanel2";
+            this.ribbonPanel2.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.ribbonPanel2.Size = new System.Drawing.Size(749, 55);
+            this.ribbonPanel2.TabIndex = 2;
+            this.ribbonPanel2.Visible = false;
+            // 
+            // ribbonBar3
+            // 
+            this.ribbonBar3.AutoOverflowEnabled = true;
+            this.ribbonBar3.ContainerControlProcessDialogKey = true;
+            this.ribbonBar3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ribbonBar3.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.btnInfo});
+            this.ribbonBar3.Location = new System.Drawing.Point(103, 0);
+            this.ribbonBar3.Name = "ribbonBar3";
+            this.ribbonBar3.Size = new System.Drawing.Size(100, 52);
+            this.ribbonBar3.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.ribbonBar3.TabIndex = 1;
+            this.ribbonBar3.Text = "Nhóm 1";
+            // 
+            // btnInfo
+            // 
+            this.btnInfo.Image = ((System.Drawing.Image)(resources.GetObject("btnInfo.Image")));
+            this.btnInfo.Name = "btnInfo";
+            this.btnInfo.SubItemsExpandWidth = 14;
+            this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
+            // 
+            // ribbonBar2
+            // 
+            this.ribbonBar2.AutoOverflowEnabled = true;
+            this.ribbonBar2.ContainerControlProcessDialogKey = true;
+            this.ribbonBar2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ribbonBar2.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.btnGVHD});
+            this.ribbonBar2.Location = new System.Drawing.Point(3, 0);
+            this.ribbonBar2.Name = "ribbonBar2";
+            this.ribbonBar2.Size = new System.Drawing.Size(100, 52);
+            this.ribbonBar2.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.ribbonBar2.TabIndex = 0;
+            this.ribbonBar2.Text = "GV hướng dẫn";
+            // 
+            // btnGVHD
+            // 
+            this.btnGVHD.Image = ((System.Drawing.Image)(resources.GetObject("btnGVHD.Image")));
+            this.btnGVHD.Name = "btnGVHD";
+            this.btnGVHD.SubItemsExpandWidth = 14;
+            this.btnGVHD.Click += new System.EventHandler(this.btnGVHD_Click);
             // 
             // ribbonPanel1
             // 
@@ -157,61 +213,6 @@
             this.btnNewGame.SubItemsExpandWidth = 14;
             this.btnNewGame.Text = "Single Play";
             this.btnNewGame.Click += new System.EventHandler(this.btnNewGame_Click);
-            // 
-            // ribbonPanel2
-            // 
-            this.ribbonPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.ribbonPanel2.Controls.Add(this.ribbonBar3);
-            this.ribbonPanel2.Controls.Add(this.ribbonBar2);
-            this.ribbonPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ribbonPanel2.Location = new System.Drawing.Point(0, 55);
-            this.ribbonPanel2.Name = "ribbonPanel2";
-            this.ribbonPanel2.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.ribbonPanel2.Size = new System.Drawing.Size(749, 55);
-            this.ribbonPanel2.TabIndex = 2;
-            this.ribbonPanel2.Visible = false;
-            // 
-            // ribbonBar3
-            // 
-            this.ribbonBar3.AutoOverflowEnabled = true;
-            this.ribbonBar3.ContainerControlProcessDialogKey = true;
-            this.ribbonBar3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ribbonBar3.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.btnInfo});
-            this.ribbonBar3.Location = new System.Drawing.Point(103, 0);
-            this.ribbonBar3.Name = "ribbonBar3";
-            this.ribbonBar3.Size = new System.Drawing.Size(100, 52);
-            this.ribbonBar3.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.ribbonBar3.TabIndex = 1;
-            this.ribbonBar3.Text = "Nhóm 1";
-            // 
-            // btnInfo
-            // 
-            this.btnInfo.Image = ((System.Drawing.Image)(resources.GetObject("btnInfo.Image")));
-            this.btnInfo.Name = "btnInfo";
-            this.btnInfo.SubItemsExpandWidth = 14;
-            this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
-            // 
-            // ribbonBar2
-            // 
-            this.ribbonBar2.AutoOverflowEnabled = true;
-            this.ribbonBar2.ContainerControlProcessDialogKey = true;
-            this.ribbonBar2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ribbonBar2.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.btnGVHD});
-            this.ribbonBar2.Location = new System.Drawing.Point(3, 0);
-            this.ribbonBar2.Name = "ribbonBar2";
-            this.ribbonBar2.Size = new System.Drawing.Size(100, 52);
-            this.ribbonBar2.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.ribbonBar2.TabIndex = 0;
-            this.ribbonBar2.Text = "GV hướng dẫn";
-            // 
-            // btnGVHD
-            // 
-            this.btnGVHD.Image = ((System.Drawing.Image)(resources.GetObject("btnGVHD.Image")));
-            this.btnGVHD.Name = "btnGVHD";
-            this.btnGVHD.SubItemsExpandWidth = 14;
-            this.btnGVHD.Click += new System.EventHandler(this.btnGVHD_Click);
             // 
             // ribbonTabItem1
             // 
@@ -366,6 +367,21 @@
             this.btnHint.Tooltip = "Ctrl + H";
             this.btnHint.Click += new System.EventHandler(this.btnHint_Click);
             // 
+            // buttonItem1
+            // 
+            this.buttonItem1.AutoCollapseOnClick = false;
+            this.buttonItem1.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.buttonItem1.Image = ((System.Drawing.Image)(resources.GetObject("buttonItem1.Image")));
+            this.buttonItem1.ImageFixedSize = new System.Drawing.Size(24, 24);
+            this.buttonItem1.ImagePaddingHorizontal = 6;
+            this.buttonItem1.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.buttonItem1.ItemAlignment = DevComponents.DotNetBar.eItemAlignment.Far;
+            this.buttonItem1.Name = "buttonItem1";
+            this.buttonItem1.RibbonWordWrap = false;
+            this.buttonItem1.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.CtrlN);
+            this.buttonItem1.SubItemsExpandWidth = 14;
+            this.buttonItem1.Text = "Single Play";
+            // 
             // frmMain
             // 
             this.BottomLeftCornerSize = 0;
@@ -384,8 +400,8 @@
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.ribbonControl1.ResumeLayout(false);
             this.ribbonControl1.PerformLayout();
-            this.ribbonPanel1.ResumeLayout(false);
             this.ribbonPanel2.ResumeLayout(false);
+            this.ribbonPanel1.ResumeLayout(false);
             this.ribbonClientPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -422,5 +438,6 @@
         private DevComponents.DotNetBar.ButtonItem btnInfo;
         private DevComponents.DotNetBar.ButtonItem btnGVHD;
         private System.Windows.Forms.Panel panel2;
+        private DevComponents.DotNetBar.ButtonItem buttonItem1;
     }
 }
