@@ -21,5 +21,11 @@ namespace Chess_Programming
         {
 
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            frmMain frm = new frmMain();
+            this.Dispose();
+        }
     }
 }

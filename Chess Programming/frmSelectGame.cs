@@ -31,12 +31,6 @@ namespace Chess_Programming
 
         private void btnVsHuman_Click(object sender, EventArgs e)
         {
-            //DialogResult result = MessageBox.Show("Bạn có muốn chơi 2 người 1 máy?", "Thông báo", MessageBoxButtons.OKCancel);
-            //if (result == DialogResult.OK)
-            //{
-            //    eGameMode = GameMode.VsHuman;
-            //    eOwnSide = ChessSide.White;
-            //}
             eGameMode = GameMode.VsHuman;
             eOwnSide = ChessSide.White;
             frmMain.signal = 0;
@@ -45,7 +39,6 @@ namespace Chess_Programming
 
         private void btnVsCPU_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show("Chức năng vẫn đang tiến hành hoàn thiện","Thông báo");
             eGameMode = GameMode.VsComputer;
             eOwnSide = ChessSide.White;
 

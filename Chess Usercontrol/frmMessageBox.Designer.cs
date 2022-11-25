@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMessageBox));
             this.lblResult = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -70,10 +71,11 @@
             this.AcceptButton = this.btnExit;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(257, 114);
+            this.ClientSize = new System.Drawing.Size(249, 103);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.lblResult);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(265, 142);
             this.MinimumSize = new System.Drawing.Size(265, 142);
             this.Name = "frmMessageBox";

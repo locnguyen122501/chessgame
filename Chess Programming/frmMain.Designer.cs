@@ -68,8 +68,8 @@
             // ribbonControl1
             // 
             this.ribbonControl1.CaptionVisible = true;
-            this.ribbonControl1.Controls.Add(this.ribbonPanel1);
             this.ribbonControl1.Controls.Add(this.ribbonPanel2);
+            this.ribbonControl1.Controls.Add(this.ribbonPanel1);
             this.ribbonControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.ribbonControl1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.ribbonTabItem1,
@@ -99,7 +99,6 @@
             this.ribbonPanel2.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.ribbonPanel2.Size = new System.Drawing.Size(749, 55);
             this.ribbonPanel2.TabIndex = 2;
-            this.ribbonPanel2.Visible = false;
             // 
             // ribbonBar3
             // 
@@ -108,15 +107,17 @@
             this.ribbonBar3.Dock = System.Windows.Forms.DockStyle.Left;
             this.ribbonBar3.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.btnInfo});
-            this.ribbonBar3.Location = new System.Drawing.Point(103, 0);
+            this.ribbonBar3.Location = new System.Drawing.Point(53, 0);
             this.ribbonBar3.Name = "ribbonBar3";
-            this.ribbonBar3.Size = new System.Drawing.Size(100, 52);
+            this.ribbonBar3.Size = new System.Drawing.Size(50, 52);
             this.ribbonBar3.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.ribbonBar3.TabIndex = 1;
             this.ribbonBar3.Text = "Nhóm 1";
             // 
             // btnInfo
             // 
+            this.btnInfo.AutoCollapseOnClick = false;
+            this.btnInfo.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
             this.btnInfo.Image = ((System.Drawing.Image)(resources.GetObject("btnInfo.Image")));
             this.btnInfo.Name = "btnInfo";
             this.btnInfo.SubItemsExpandWidth = 14;
@@ -131,13 +132,14 @@
             this.btnGVHD});
             this.ribbonBar2.Location = new System.Drawing.Point(3, 0);
             this.ribbonBar2.Name = "ribbonBar2";
-            this.ribbonBar2.Size = new System.Drawing.Size(100, 52);
+            this.ribbonBar2.Size = new System.Drawing.Size(50, 52);
             this.ribbonBar2.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.ribbonBar2.TabIndex = 0;
-            this.ribbonBar2.Text = "GV hướng dẫn";
+            this.ribbonBar2.Text = "GV";
             // 
             // btnGVHD
             // 
+            this.btnGVHD.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
             this.btnGVHD.Image = ((System.Drawing.Image)(resources.GetObject("btnGVHD.Image")));
             this.btnGVHD.Name = "btnGVHD";
             this.btnGVHD.SubItemsExpandWidth = 14;
@@ -154,6 +156,7 @@
             this.ribbonPanel1.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.ribbonPanel1.Size = new System.Drawing.Size(749, 55);
             this.ribbonPanel1.TabIndex = 1;
+            this.ribbonPanel1.Visible = false;
             // 
             // ribbonBar7
             // 
@@ -216,13 +219,13 @@
             // 
             // ribbonTabItem1
             // 
-            this.ribbonTabItem1.Checked = true;
             this.ribbonTabItem1.Name = "ribbonTabItem1";
             this.ribbonTabItem1.Panel = this.ribbonPanel1;
             this.ribbonTabItem1.Text = "Trang Chủ";
             // 
             // ribbonTabItem2
             // 
+            this.ribbonTabItem2.Checked = true;
             this.ribbonTabItem2.Name = "ribbonTabItem2";
             this.ribbonTabItem2.Panel = this.ribbonPanel2;
             this.ribbonTabItem2.Text = "Thông tin thêm";
@@ -295,6 +298,7 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.Location = new System.Drawing.Point(0, 4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(749, 716);

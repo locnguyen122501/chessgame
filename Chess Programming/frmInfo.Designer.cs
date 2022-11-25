@@ -127,6 +127,7 @@
             this.btnExit.Size = new System.Drawing.Size(79, 29);
             this.btnExit.TabIndex = 19;
             this.btnExit.Text = "Đóng";
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // labelX12
             // 
@@ -190,7 +191,7 @@
             this.labelX10.AutoSize = true;
             this.labelX10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX10.ForeColor = System.Drawing.Color.Black;
-            this.labelX10.Location = new System.Drawing.Point(110, 45);
+            this.labelX10.Location = new System.Drawing.Point(133, 45);
             this.labelX10.Name = "labelX10";
             this.labelX10.Size = new System.Drawing.Size(119, 24);
             this.labelX10.TabIndex = 16;
@@ -211,10 +212,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(561, 433);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nhóm 1";
