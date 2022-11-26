@@ -43,6 +43,9 @@
             this.labelX8 = new DevComponents.DotNetBar.LabelX();
             this.labelX10 = new DevComponents.DotNetBar.LabelX();
             this.labelX9 = new DevComponents.DotNetBar.LabelX();
+            this.labelX1 = new DevComponents.DotNetBar.LabelX();
+            this.labelX4 = new DevComponents.DotNetBar.LabelX();
+            this.labelX5 = new DevComponents.DotNetBar.LabelX();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -93,6 +96,9 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.labelX5);
+            this.panel2.Controls.Add(this.labelX4);
+            this.panel2.Controls.Add(this.labelX1);
             this.panel2.Controls.Add(this.labelX14);
             this.panel2.Controls.Add(this.btnExit);
             this.panel2.Controls.Add(this.labelX12);
@@ -208,6 +214,39 @@
             this.labelX9.TabIndex = 15;
             this.labelX9.Text = "2. Nguyễn Thành An";
             // 
+            // labelX1
+            // 
+            this.labelX1.AutoSize = true;
+            this.labelX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX1.ForeColor = System.Drawing.Color.Black;
+            this.labelX1.Location = new System.Drawing.Point(334, 107);
+            this.labelX1.Name = "labelX1";
+            this.labelX1.Size = new System.Drawing.Size(112, 24);
+            this.labelX1.TabIndex = 21;
+            this.labelX1.Text = "1911065918";
+            // 
+            // labelX4
+            // 
+            this.labelX4.AutoSize = true;
+            this.labelX4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX4.ForeColor = System.Drawing.Color.Black;
+            this.labelX4.Location = new System.Drawing.Point(334, 137);
+            this.labelX4.Name = "labelX4";
+            this.labelX4.Size = new System.Drawing.Size(112, 24);
+            this.labelX4.TabIndex = 22;
+            this.labelX4.Text = "1911065966";
+            // 
+            // labelX5
+            // 
+            this.labelX5.AutoSize = true;
+            this.labelX5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX5.ForeColor = System.Drawing.Color.Black;
+            this.labelX5.Location = new System.Drawing.Point(334, 167);
+            this.labelX5.Name = "labelX5";
+            this.labelX5.Size = new System.Drawing.Size(112, 24);
+            this.labelX5.TabIndex = 23;
+            this.labelX5.Text = "1911066302";
+            // 
             // frmInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -248,5 +287,8 @@
         private DevComponents.DotNetBar.LabelX labelX8;
         private DevComponents.DotNetBar.LabelX labelX10;
         private DevComponents.DotNetBar.LabelX labelX9;
+        private DevComponents.DotNetBar.LabelX labelX5;
+        private DevComponents.DotNetBar.LabelX labelX4;
+        private DevComponents.DotNetBar.LabelX labelX1;
     }
 }
